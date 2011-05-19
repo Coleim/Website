@@ -1,0 +1,94 @@
+/*********************
+ * Articles
+ *********************/
+ 
+body
+ {
+ background-color: black;
+ }
+ 
+.article
+{
+	color: #f1f1f1;
+	color: #e5e5e5 ;
+}
+
+.title
+{
+    font: bold 11px Batang, arial, serif;
+	font-family:"Courier New", Courier, "VT-100", fixedsys, monospace;
+    padding-bottom: 0px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #tabs li */
+    border-bottom: 1px solid green;
+	margin-left: 0;
+	margin-bottom: 20px;	
+}
+
+.content
+{
+	font-family:"Courier New", Courier, "VT-100", fixedsys, monospace;
+	margin-left: 5px;
+}
+
+ 
+/*********************
+ *  Tabs menu
+ *********************/
+
+#tabs
+{
+    font : bold 11px Batang, arial, serif;
+    list-style-type : none;
+    padding-bottom : 30px; /* à modifier suivant la taille de la police ET de la hauteur de l'onglet dans #tabs li */
+    border-bottom : 2px solid #9EA0A1;
+	margin-left : -45px;
+}
+
+
+#tabs li
+{
+    float : left;
+    height : 23px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
+    background-color: #F4FCFC;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px; 
+    margin : 6px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+    margin : 6px 2px 0 2px;  /* Pour IE  */
+    border : 1px solid #9EA0A1;
+}
+
+#tabs li:hover
+{
+	margin : 3px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+	background-color: #fff;
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	height : 26px;
+}
+
+
+#tabs li.active
+{
+	margin : 3px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+	border-top: 5px solid green;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+}
+
+#tabs li.active:hover
+{
+	margin : 3px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+	border-top: 5px solid green;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+	height : 23px;
+}
+
+
+#tabs a
+{
+    display : block;
+    color : #666;
+	font-family:"Courier New", Courier, "VT-100", fixedsys, monospace;
+    text-decoration : none;
+    padding : 4px;
+}
