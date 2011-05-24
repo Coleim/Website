@@ -1,0 +1,15 @@
+<article title="Changer la langue du site" date="19 Mai 2011" >
+	<content>
+		<![CDATA[
+		Langue actuelle : Français.<br />
+		<br />
+		Choisir la langue :<br />
+		<ul>
+			<li><a href="index.php?page=configuration&lang=en">Anglais</a></li>
+			<li><a href="">Japonais</a></li>
+		</ul>
+		]]>
+	</content>
+	<comments>
+	</comments>
+</article>

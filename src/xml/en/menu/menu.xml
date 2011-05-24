@@ -1,0 +1,7 @@
+<menu>
+	<menuItem name="Home" link="home" />
+	<menuItem name="C.V." link="cv" />
+	<menuItem name="Projects" link="projects" />
+	<menuItem name="Download" link="download" />
+	<menuItem name="Configuration" link="configuration" />	
+</menu>
