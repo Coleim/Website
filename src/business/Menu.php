@@ -4,15 +4,12 @@ class Menu {
 	private $menuItemList;
 	
 	public function Menu($filename, $lang) {
-
-		// Get the menu file name;
-		$menuFile = 'menu_' . $lang . '.xml';
 		
 		// Create a DOMDocument for XML reading
 		$objDOM = new DOMDocument();
 		
 		// Load the file
-		$objDOM->load('../xml/menu/'. $menuFile);
+		$objDOM->load('../xml/' . $lang . '/menu/menu.xml');
 		
 		// Get the list of menu items
 		$menu = $objDOM->getElementsByTagName("menuItem");

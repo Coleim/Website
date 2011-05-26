@@ -68,7 +68,15 @@ class Displayer {
 		<meta name="Revisit-after" content="15"/>
 	</head>
 	<!-- The body of the website -->
-	<body>';
+	<body>
+		<div id="pageRang">
+			<script type="text/javascript">
+				var	url = \'coleim.webou.net/\';
+				var logo = \'20\';
+			</script>
+			<script type="text/javascript" src="http://www.pagerank-direct.fr/js/pagerank.js"></script>
+		</div>
+';
 	
 	}
 	
@@ -102,6 +110,7 @@ class Displayer {
 	</div>';
 	}
 	
+
 	// -------------------------------------------
 	// Prepare page function
 	// -------------------------------------------

@@ -9,14 +9,10 @@
 		include('../business/youAreBlackListed.php');
 	} else {
 		
-		//echo getcwd();
-		if ( isset($_COOKIE['lang']) ) {
-			$lang = $_COOKIE['lang'];
-			setcookie('lang', $lang, time() + 365*24*3600, null, null, false, true);
-		} else {
-			$lang = 'fr';
-			setcookie('lang', $lang, time() + 365*24*3600, null, null, false, true);
-		}
+		include('../business/LanguageManager.php');
+		
+		$langManager = new LanguageManager();
+		
 
 		if( !isset($_GET['page']) ) {
 			$pageRequested = 'home';
@@ -27,16 +23,12 @@
 		include('../business/Site.php');
 		include('../view/Displayer.php');
 
-        //TODO Passer le css en parametre
-		$site = new Site( $pageRequested, $lang );
 		
+		$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
+
 		$displayer = new Displayer($site);
 		$displayer->display();
 	}
-		
-		
-	
-
 
 
 /*

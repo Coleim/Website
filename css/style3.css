@@ -89,3 +89,8 @@ body
     text-decoration : none;
     padding : 4px;
 }
+
+#pageRang
+{
+	float : right;
+}

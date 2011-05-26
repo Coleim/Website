@@ -8,13 +8,13 @@ class Page {
 	
 	public function Page($fileName, $lang) {
 		// Get the real file name;
-		$fileName = $fileName . '_' . $lang . '.xml';
+		$fileName = $fileName . '.xml';
 		
 		// Create a DOMDocument for XML reading
 		$objDOM = new DOMDocument();
 		
 		// Load the file
-		$objDOM->load('../xml/pages/'. $fileName);
+		$objDOM->load('../xml/' . $lang . '/pages/'. $fileName);
 		
 		// Get the list of articles
 		$articles = $objDOM->getElementsByTagName("article");

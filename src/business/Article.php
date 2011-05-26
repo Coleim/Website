@@ -58,7 +58,7 @@ class Article {
 
 	public function Article($articleName, $lang) {
 		// Get the real file name;
-		$articleFileName = '../xml/pages/articles/' . $articleName . '_' . $lang . '.xml';
+		$articleFileName = '../xml/' . $lang . '/pages/articles/' . $articleName . '.xml';
 		$this->fromXml($articleFileName);
 	}
 	
