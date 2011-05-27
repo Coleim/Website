@@ -1,12 +1,12 @@
 <article title="Change the website language" date="24 Mai 2011" >
 	<content>
 		<![CDATA[
-		Current language : English.<br />
+		Current language: English.<br />
 		<br />
-		Choose new language :<br />
+		Choose new language:<br />
 		<ul>
-			<li><a href="index.php?page=configuration&lang=fr">French</a></li>
-			<li><a href="">Japanese</a></li>
+			<li><a href="index.php?page=configuration&lang=fr">Français (French)</a></li>
+			<li><a href="index.php?page=configuration&lang=jp">日本語 (Japanese)</a></li>
 		</ul>
 		]]>
 	</content>

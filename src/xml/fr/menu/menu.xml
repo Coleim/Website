@@ -3,5 +3,5 @@
 	<menuItem name="C.V." link="cv" />
 	<menuItem name="Projets" link="projects" />
 	<menuItem name="Téléchargements" link="download" />
-	<menuItem name="Configuration" link="configuration" />	
+	<menuItem name="Préférences" link="configuration" />	
 </menu>
