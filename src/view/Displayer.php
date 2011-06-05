@@ -69,13 +69,6 @@ class Displayer {
 	</head>
 	<!-- The body of the website -->
 	<body>
-		<div id="pageRang">
-			<script type="text/javascript">
-				var	url = \'coleim.webou.net/\';
-				var logo = \'20\';
-			</script>
-			<script type="text/javascript" src="http://www.pagerank-direct.fr/js/pagerank.js"></script>
-		</div>
 ';
 	
 	}
