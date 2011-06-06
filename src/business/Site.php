@@ -1,8 +1,8 @@
 <?php
 
-include('../business/Page.php');
-include('../business/Menu.php');
-include('../business/Header.php');
+require_once('../business/Page.php');
+require_once('../business/Menu.php');
+require_once('../business/Header.php');
 
 
 class Site {

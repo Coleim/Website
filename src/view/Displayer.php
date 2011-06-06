@@ -9,11 +9,39 @@ class Displayer {
 	// -------------------------------------------
 	public function Displayer($site) {
 		
-		$this->xhtml = '';	
+
+		echo 'Debut de la demande : ' . $_SERVER['REQUEST_TIME'] . '<br />';
+		$startTime = $_SERVER['REQUEST_TIME'];
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		
+		echo 'Debut de la Reponse : '. $intTime . ' <br />';
+		$this->xhtml = '';
+		
+		$startTime = getmicrotime();
 		$this->prepareHeader($site->getHeader());
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Fin creation header : ' . $intTime . ' .:. Soit Temps prepareHeader ----  ' . $diff . ' ms<br />';
+		
+		$startTime = getmicrotime();
 		$this->prepareMenu($site->getMenu());
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Fin creation menu : ' . $intTime . ' .:. Soit Temps prepareMenu ------- ' . $diff . ' ms<br />';
+		
+		$startTime = getmicrotime();
 		$this->preparePage($site->getPage());
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Fin creation page : ' . $intTime . ' .:. Soit Temps preparePage -------- ' . $diff . ' ms<br />';
+		
+		$startTime = getmicrotime();
 		$this->prepareFooter();
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Fin creation footer : ' . $intTime . ' .:. Soit Temps prepareFooter ----- ' . $diff . ' ms<br />';
+		
 	}
 	
 	// -------------------------------------------

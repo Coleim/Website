@@ -1,6 +1,6 @@
 <?php
 
-include('../business/Article.php');
+require_once('../business/Article.php');
 
 class Page {
 

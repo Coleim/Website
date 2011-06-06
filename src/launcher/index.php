@@ -1,18 +1,52 @@
 <?php
 	session_start();
 
-	include('../security/blackList.php');
+	
+	function getmicrotime($e = 8)
+	{
+		list($u, $s) = explode(' ',microtime());
+		return $u;
+	}
+	
+	echo __FILE__ . '<br/>';
+	echo dirname(__FILE__). '<br/>'. '<br/>';
+
+
+	
+	$totalstartTime = getmicrotime();
+		
+	$startTime = getmicrotime();
+			
+	require_once('../security/blackList.php');
 
 	$ip = $_SERVER["REMOTE_ADDR"];
 	
 	if( blackListed($ip) ) {
-		include('../business/youAreBlackListed.php');
+		require_once('../business/youAreBlackListed.php');
 	} else {
 		
-		include('../business/LanguageManager.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Start processing website - Temps depuis le demarrage : ' . $diff . ' ms<br />';
 		
+
+		$startTime = getmicrotime();
+		require_once('../business/LanguageManager.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps Language manager inclusion : ' . $diff . ' ms<br /><br /><br />';
+		
+		
+		
+		
+		
+		
+		$startTime = getmicrotime();
 		$langManager = new LanguageManager();
-		
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation LanguageManager : ' . $diff . ' ms<br />';
+
 
 		if( !isset($_GET['page']) ) {
 			$pageRequested = 'home';
@@ -20,23 +54,51 @@
 			$pageRequested = $_GET['page'];
 		}
 
-		include('../business/Site.php');
-		include('../view/Displayer.php');
-
+		$startTime = getmicrotime();
+		require_once('../business/Site.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps inclusion Site : ' . $diff . ' ms<br />';
 		
-		$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
+		$startTime = getmicrotime();
+		require_once('../view/Displayer.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps inclusion Displayer : ' . $diff . ' ms<br />';
 
+		$startTime = getmicrotime();
+		$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation Site : ' . $diff . ' ms<br />';
+		
+		
+		$startTime = getmicrotime();
 		$displayer = new Displayer($site);
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation Displayer : ' . $diff . ' ms<br />';
+		
+		
+		$startTime = getmicrotime();
 		$displayer->display();
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps Display : ' . $diff . ' ms<br />';
 	}
+	
+	$totalintTime = getmicrotime();
+	$totaldiff = bcsub($totalintTime,$totalstartTime,7);
+	echo 'Temps total creation site : ' . $totaldiff . ' ms<br />';
+
 
 
 /*
 
 
-include('../view/Menu.php');
-include('../view/Page.php');
-include('../view/Site.php');
+require_once('../view/Menu.php');
+require_once('../view/Page.php');
+require_once('../view/Site.php');
 */
 
 /// Dans l'index.php
