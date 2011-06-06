@@ -10,12 +10,6 @@ class Displayer {
 	public function Displayer($site) {
 		
 
-		function getmicrotime($e = 8)
-		{
-			list($u, $s) = explode(' ',microtime());
-			return $u;
-		}
-		
 		echo 'Debut de la demande : ' . $_SERVER['REQUEST_TIME'] . '<br />';
 		$startTime = $_SERVER['REQUEST_TIME'];
 		$intTime = getmicrotime();
@@ -48,9 +42,6 @@ class Displayer {
 		$diff = bcsub($intTime,$startTime,7);
 		echo 'Fin creation footer : ' . $intTime . ' .:. Soit Temps prepareFooter ----- ' . $diff . ' ms<br />';
 		
-		
-
-		echo getmicrotime(); 
 	}
 	
 	// -------------------------------------------

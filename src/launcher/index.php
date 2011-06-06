@@ -1,6 +1,22 @@
 <?php
 	session_start();
 
+	
+	function getmicrotime($e = 8)
+	{
+		list($u, $s) = explode(' ',microtime());
+		return $u;
+	}
+	
+	echo __FILE__ . '<br/>';
+	echo dirname(__FILE__). '<br/>'. '<br/>';
+
+
+	
+	$totalstartTime = getmicrotime();
+		
+	$startTime = getmicrotime();
+			
 	include('../security/blackList.php');
 
 	$ip = $_SERVER["REMOTE_ADDR"];
@@ -9,10 +25,28 @@
 		include('../business/youAreBlackListed.php');
 	} else {
 		
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Start processing website - Temps depuis le demarrage : ' . $diff . ' ms<br />';
+		
+
+		$startTime = getmicrotime();
 		include('../business/LanguageManager.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps Language manager inclusion : ' . $diff . ' ms<br /><br /><br />';
 		
+		
+		
+		
+		
+		
+		$startTime = getmicrotime();
 		$langManager = new LanguageManager();
-		
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation LanguageManager : ' . $diff . ' ms<br />';
+
 
 		if( !isset($_GET['page']) ) {
 			$pageRequested = 'home';
@@ -20,15 +54,43 @@
 			$pageRequested = $_GET['page'];
 		}
 
+		$startTime = getmicrotime();
 		include('../business/Site.php');
-		include('../view/Displayer.php');
-
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps inclusion Site : ' . $diff . ' ms<br />';
 		
-		$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
+		$startTime = getmicrotime();
+		include('../view/Displayer.php');
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps inclusion Displayer : ' . $diff . ' ms<br />';
 
+		$startTime = getmicrotime();
+		$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation Site : ' . $diff . ' ms<br />';
+		
+		
+		$startTime = getmicrotime();
 		$displayer = new Displayer($site);
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps creation Displayer : ' . $diff . ' ms<br />';
+		
+		
+		$startTime = getmicrotime();
 		$displayer->display();
+		$intTime = getmicrotime();
+		$diff = bcsub($intTime,$startTime,7);
+		echo 'Temps Display : ' . $diff . ' ms<br />';
 	}
+	
+	$totalintTime = getmicrotime();
+	$totaldiff = bcsub($totalintTime,$totalstartTime,7);
+	echo 'Temps total creation site : ' . $totaldiff . ' ms<br />';
+
 
 
 /*
