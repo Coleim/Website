@@ -17,12 +17,12 @@
 		
 	$startTime = getmicrotime();
 			
-	include('../security/blackList.php');
+	require_once('../security/blackList.php');
 
 	$ip = $_SERVER["REMOTE_ADDR"];
 	
 	if( blackListed($ip) ) {
-		include('../business/youAreBlackListed.php');
+		require_once('../business/youAreBlackListed.php');
 	} else {
 		
 		$intTime = getmicrotime();
@@ -31,7 +31,7 @@
 		
 
 		$startTime = getmicrotime();
-		include('../business/LanguageManager.php');
+		require_once('../business/LanguageManager.php');
 		$intTime = getmicrotime();
 		$diff = bcsub($intTime,$startTime,7);
 		echo 'Temps Language manager inclusion : ' . $diff . ' ms<br /><br /><br />';
@@ -55,13 +55,13 @@
 		}
 
 		$startTime = getmicrotime();
-		include('../business/Site.php');
+		require_once('../business/Site.php');
 		$intTime = getmicrotime();
 		$diff = bcsub($intTime,$startTime,7);
 		echo 'Temps inclusion Site : ' . $diff . ' ms<br />';
 		
 		$startTime = getmicrotime();
-		include('../view/Displayer.php');
+		require_once('../view/Displayer.php');
 		$intTime = getmicrotime();
 		$diff = bcsub($intTime,$startTime,7);
 		echo 'Temps inclusion Displayer : ' . $diff . ' ms<br />';
@@ -96,9 +96,9 @@
 /*
 
 
-include('../view/Menu.php');
-include('../view/Page.php');
-include('../view/Site.php');
+require_once('../view/Menu.php');
+require_once('../view/Page.php');
+require_once('../view/Site.php');
 */
 
 /// Dans l'index.php
