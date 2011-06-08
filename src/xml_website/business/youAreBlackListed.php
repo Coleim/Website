@@ -1,0 +1,1 @@
+<center> <img src="../../data/image/blacklist_orig.jpg" /> </center>

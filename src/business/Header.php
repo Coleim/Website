@@ -21,7 +21,7 @@ class Header {
 	public function Header($filename, $lang) {
 	
 		$this->docType = 'html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"';
-		$this->lang = 'fr';
+		$this->lang = $lang;
 		$this->title = '- Clément Oliva - ' . $filename ;
         //TODO Passer le css en parametre
 		$this->cssFile = 'style3.css';

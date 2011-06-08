@@ -1,0 +1,20 @@
+{
+     "name": "Accueil",
+     "link": "home"
+}
+{
+     "name": "C.V.",
+     "link": "cv"
+}
+{
+     "name": "Projets",
+     "link": "projects"
+}
+{
+     "name": "Téléchargements",
+     "link": "download"
+}
+{
+     "name": "Préférences",
+     "link": "configuration"
+}

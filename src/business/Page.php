@@ -7,23 +7,19 @@ class Page {
 	private $articles;
 	
 	public function Page($fileName, $lang) {
-		// Get the real file name;
-		$fileName = $fileName . '.xml';
-		
-		// Create a DOMDocument for XML reading
-		$objDOM = new DOMDocument();
-		
-		// Load the file
-		$objDOM->load('../xml/' . $lang . '/pages/'. $fileName);
-		
-		// Get the list of articles
-		$articles = $objDOM->getElementsByTagName("article");
-
-		// For each articles on this page.
-		foreach( $articles as $article ) {
-			$articleName = $article->attributes->getNamedItem('file')->nodeValue;
+	
+		// Get the content of the file.
+		$jsonContent = file_get_contents('../json/pages/' . $fileName . '.json');
+	
+		// Decode the json string
+		$jsonArticles = json_decode($jsonContent);
+	
+		// Get the values of the menu
+		foreach ($jsonArticles as $article) {
+			$articleName = $article->{'fileName'};
+			echo $articleName . '<br />';
 			$this->articles[] = new Article($articleName, $lang);
-		}		
+		}
 	}
 	
 	public function getArticles() {

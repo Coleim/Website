@@ -58,44 +58,26 @@ class Article {
 
 	public function Article($articleName, $lang) {
 		// Get the real file name;
-		$articleFileName = '../xml/' . $lang . '/pages/articles/' . $articleName . '.xml';
-		$this->fromXml($articleFileName);
+		$articleFileName = '../json/' . $lang . '/articles/' . $articleName . '.json';
+		$this->fromJson($articleFileName);
 	}
 	
-	private function fromXml($articleFileName) {
-		// Create a DOMDocument for XML reading
-		$objDOM = new DOMDocument();
+	private function fromJson($articleFileName) {
+	
+		// Get the content of the file.
+		$jsonContent = file_get_contents($articleFileName);
 		
-		// Load the file
-		$objDOM->load($articleFileName);
-		
-		// Get info about this article
-		$article = $objDOM->getElementsByTagName("article");		
-		if( $article->length > 0 ) {
-			$this->title = $article->item(0)->attributes->getNamedItem('title')->nodeValue;
-			$this->publicatonDate = $article->item(0)->attributes->getNamedItem('date')->nodeValue;
-		}
-		
-		// Get the content
-		$contents = $objDOM->getElementsByTagName("content");
-		if( $contents->length > 0 ) {
-			$this->content = $contents->item(0)->nodeValue;
-		}
+		// Decode the json string
+		$jsonArticle = json_decode($jsonContent);
 
-		// Get the comments
-		$comments = $objDOM->getElementsByTagName("comment");
-		// For each comment on this article.
-		foreach( $comments as $comment ) {
+		$this->title = $jsonArticle->{'title'};
+		$this->publicatonDate = $jsonArticle->{'date'};
+		$this->content = $jsonArticle->{'content'};
 		
-			$id = $comment->attributes->getNamedItem('id')->nodeValue;
-			$author = $comment->attributes->getNamedItem('author')->nodeValue;
-			$ip = $comment->attributes->getNamedItem('ip')->nodeValue;
-			$date = $comment->attributes->getNamedItem('date')->nodeValue;
-			$content = $comment->nodeValue;
-			
-			$this->comments[] = new Comment($id, $author, $ip, $date, $content);
-		}
+		
+		// Check comments
 	}
+
 	
 	public function getTitle() {
 		return $this->title;
