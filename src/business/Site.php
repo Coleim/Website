@@ -13,25 +13,9 @@ class Site {
 	
 	public function Site($filename, $lang) {
 	
-	echo '<br /><br />';
-		$startTime = getmicrotime();
 		$this->menu = new Menu($filename, $lang);
-		$intTime = getmicrotime();
-		$diff = bcsub($intTime,$startTime,7);
-		echo 'Temps creation Menu : ' . $diff . ' ms<br />';
-		
-		echo '<br /><br />';
-		
-		$startTime = getmicrotime();
 		$this->page = new Page($filename, $lang);
-		$intTime = getmicrotime();
-		$diff = bcsub($intTime,$startTime,7);
-		echo 'Temps creation Page : ' . $diff . ' ms<br />';
-				
-		echo '<br /><br />';
-		
-		
-        //TODO Passer le css en parametre
+        	//TODO Passer le css en parametre
 		$this->header = new Header($filename, $lang);		
 	}
 	

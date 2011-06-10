@@ -16,9 +16,7 @@ class Page {
 	
 		// Get the values of the menu
 		foreach ($jsonArticles as $article) {
-			$articleName = $article->{'fileName'};
-			echo $articleName . '<br />';
-			$this->articles[] = new Article($articleName, $lang);
+			$this->articles[] = new Article($article->{'fileName'}, $lang);
 		}
 	}
 	
