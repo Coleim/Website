@@ -1,0 +1,5 @@
+{
+	"title": "Changer la langue du site",
+	"date": "09 Juin 2011",
+	"content": "Langue actuelle : Français.<br /><br />Choisir la langue :<br /><ul><li><a href=\"index.php?page=configuration&lang=en\">English (Anglais)</a></li><li><a href=\"index.php?page=configuration&lang=jp\">日本語 (Japonais)</a></li></ul>"
+}
