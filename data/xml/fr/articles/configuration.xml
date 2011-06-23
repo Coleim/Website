@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article title="Changer la langue du site" date="19 Mai 2011" >
+	<![CDATA[
+	Langue actuelle : Français.<br />
+	<br />
+	Choisir la langue :<br />
+	<ul>
+		<li><a href="index.php?page=configuration&lang=en">English (Anglais)</a></li>
+		<li><a href="index.php?page=configuration&lang=jp">日本語 (Japonais)</a></li>
+	</ul>
+	]]>
+</article>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<menuItem name="Home" link="home" />
+	<menuItem name="Curriculum Vitae" link="cv" />
+	<menuItem name="Projects" link="projects" />
+	<menuItem name="Download" link="download" />
+	<menuItem name="Preferences" link="configuration" />	
+</menu>
