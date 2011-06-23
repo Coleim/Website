@@ -1,7 +1,0 @@
-<menu>
-	<menuItem name="Accueil" link="home" />
-	<menuItem name="C.V." link="cv" />
-	<menuItem name="Projets" link="projects" />
-	<menuItem name="Téléchargements" link="download" />
-	<menuItem name="Préférences" link="configuration" />	
-</menu>

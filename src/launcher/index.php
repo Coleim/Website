@@ -15,6 +15,6 @@
 	$langManager = new LanguageManager();
 	$site = new Site( $pageRequested, $langManager->getCurrentLanguage() );
 
-	$displayer = new Displayer($site);
-	$displayer->display();
+	$site->display();
+	
 ?>

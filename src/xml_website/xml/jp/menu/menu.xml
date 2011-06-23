@@ -1,9 +1,0 @@
-<menu>
-	<menuItem name="ホーム" link="home" />
-	<menuItem name="履歴書" link="cv" />
-	<menuItem name="プロジェクト" link="projects" />
-	<menuItem name="ダウンロード" link="download" />
-	<menuItem name="表示設定" link="configuration" />	
-	
-	
-</menu>

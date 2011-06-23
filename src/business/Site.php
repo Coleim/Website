@@ -11,12 +11,10 @@ class Site {
 	private $menu;
 	private $header;
 	
-	public function Site($filename, $lang) {
-	
-		$this->menu = new Menu($filename, $lang);
+	public function Site($filename, $lang) {	
+		$this->header = new Header($lang);		
+		$this->menu = new Menu($lang);
 		$this->page = new Page($filename, $lang);
-        	//TODO Passer le css en parametre
-		$this->header = new Header($filename, $lang);		
 	}
 	
 	public function getMenu() {
@@ -29,6 +27,17 @@ class Site {
 	
 	public function getHeader() {
 		return $this->header;
+	}
+	
+	public function display() {
+		$this->header->printHtml();
+		
+		print '<body>';
+		
+		$this->menu->printHtml();
+		$this->page->printHtml();
+		
+		print '</body></html>';
 	}
 }
 

@@ -8,17 +8,33 @@ class Page {
 	
 	public function Page($fileName, $lang) {
 	
-		// Get the content of the file.
-		$jsonContent = file_get_contents('../json/pages/' . $fileName . '.json');
-	
-		// Decode the json string
-		$jsonArticles = json_decode($jsonContent);
-	
-		// Get the values of the menu
-		foreach ($jsonArticles as $article) {
-			$this->articles[] = new Article($article->{'fileName'}, $lang);
-		}
+		// Create a DOMDocument for XML reading
+		$objDOM = new DOMDocument();
+		
+		// Load the file
+		$objDOM->load('../../data/xml/pages/'. $fileName . '.xml');    
+
+		// Get the list of articles
+		$articles = $objDOM->getElementsByTagName("article");
+
+
+		// For each articles on this page.
+		foreach( $articles as $article ) {
+		  $articleName = $article->attributes->getNamedItem('file')->nodeValue;
+		  $this->articles[] = new Article($articleName, $lang);
+		}    
 	}
+	
+	
+	public function printHtml() {
+		print '<div id="page">';
+		foreach ($this->articles as $article) {
+			$article->printHtml();
+			$article->printComments();
+		}
+		print '</div>';
+	}
+	
 	
 	public function getArticles() {
 		return $this->articles;
