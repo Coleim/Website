@@ -3,7 +3,6 @@
 
 	require_once('../business/LanguageManager.php');
 	require_once('../business/Site.php');
-	require_once('../view/Displayer.php');
 	
 	
 	if( !isset($_GET['page']) ) {
