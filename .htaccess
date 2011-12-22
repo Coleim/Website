@@ -1,0 +1,4 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^index\.html$  src/launcher/ [L]
+RewriteRule ^index\.php$  src/launcher/index\.php [L]
